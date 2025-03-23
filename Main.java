@@ -31,6 +31,7 @@ public class Main {
             String pin = sc.nextLine();
 
             pl.autentikasi(pin);
+            if (!pl.autentikasi(pin)) { continue; }
 
             System.out.println("Selamat datang, " + pl.getNama());
             System.out.println("Saldo Anda: Rp" + Typography.RpF.IND.format(pl.getSaldo()));
