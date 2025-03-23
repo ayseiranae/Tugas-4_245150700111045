@@ -30,13 +30,14 @@ public class Main {
             System.out.print("Masukkan PIN: ");
             String pin = sc.nextLine();
 
-            pl.autentikasi(pin);
             if (!pl.autentikasi(pin)) { continue; }
 
+            System.out.println();
             System.out.println("Selamat datang, " + pl.getNama());
             System.out.println("Saldo Anda: Rp" + Typography.RpF.IND.format(pl.getSaldo()));
             System.out.println("1. Top Up");
             System.out.println("2. Pembelian");
+            System.out.println("3. Exit");
             System.out.print("Pilih menu: ");
             int menu = Integer.parseInt(sc.nextLine());
 
@@ -51,6 +52,9 @@ public class Main {
                     double total = Double.parseDouble(sc.nextLine());
                     pl.beli(total);
                     break;
+                case 3 :
+                    Typography.center("Terima kasih telah menggunakan layanan kami.");
+                    System.exit(0);
                 default:
                     Typography.center(Typography.RED+ "Menu tidak tersedia." + Typography.RESET);
             }
